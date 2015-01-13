@@ -1,10 +1,15 @@
 use std::io::process::{Command,ProcessOutput};
+use std::os;
+use std::str::StrExt;
 
 fn main() {
     println!("Hello, my name is Legato, a C++ build tool.");
 
     let mut compiler = Command::new("g++");
-    compiler.arg("--version");
+
+    let current_working_directory = os::getcwd().unwrap();
+
+    compiler.arg("main.cxx");
 
     match compiler.output(){
         Err(why) => panic!("Could not spawn compiler: {}", why.desc),
