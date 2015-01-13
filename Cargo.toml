@@ -1,0 +1,9 @@
+[package]
+
+name = "legato"
+version = "0.0.1"
+authors = [ "Jeremy Opalach <jeremy.opalach@gmail.com>" ]
+
+[[bin]]
+
+name = "legato"
