@@ -4,6 +4,12 @@ name = "legato"
 version = "0.0.1"
 authors = [ "Jeremy Opalach <jeremy.opalach@gmail.com>" ]
 
+[lib]
+
+name = "legato"
+path = "src/lib.rs"
+
 [[bin]]
 
 name = "legato"
+path = "src/main.rs"
