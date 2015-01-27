@@ -1,7 +1,7 @@
 
 extern crate legato;
 
-//use std::os;
+use std::os;
 use legato::compiler::gcc;
 use legato::compiler::build;
 
@@ -12,9 +12,10 @@ fn main() {
     compiler.arg("-MMD");
     compiler.arg("main.cxx");
 
-    let builder = build::Builder::new(&compiler);
-
+    let builder = match os::getcwd().unwrap().as_str()
+    {
+        Some(path) => build::Builder::new(path),
+        None =>  unreachable!(),
+    };
     builder.build();
-
-    //let current_working_directory = os::getcwd().unwrap();
 }

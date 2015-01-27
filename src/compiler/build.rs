@@ -1,20 +1,18 @@
-use compiler::common::{HasCompiler};
 
-pub struct Builder<'a>{
-    compiler: &'a (HasCompiler + 'a),
+pub struct Builder{
+    currentWorkingDirectory: String,
 }
 
-impl<'a> Builder<'a>{
+impl Builder{
 
-    pub fn new(compiler: &'a HasCompiler) -> Builder<'a>{
+    pub fn new(currentWorkingDirectory: &str) -> Builder{
         Builder {
-            compiler: compiler,
+            currentWorkingDirectory: currentWorkingDirectory.to_string(),
         }
     }
 
-    pub fn build(&self) {
-        self.compiler.compile();
+    pub fn build(&self){
+        println!("Building in {}", self.currentWorkingDirectory);
+
     }
-
-
 }
