@@ -1,10 +1,4 @@
-use std::io::process::{ProcessOutput};
-use std::io::{IoResult};
-
-pub trait HasCompiler{
-    fn compile(&self) -> IoResult<ProcessOutput>;
-}
-
+use compiler::common::{HasCompiler};
 
 pub struct Builder<'a>{
     compiler: &'a (HasCompiler + 'a),

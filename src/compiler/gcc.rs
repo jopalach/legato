@@ -1,7 +1,7 @@
 use std::io::process::{Command, ProcessOutput};
 use std::io::{IoResult};
 use std::str::StrExt;
-use compiler::build::{HasCompiler};
+use compiler::common::{HasCompiler};
 
 pub struct Compiler {
     exe: String,
