@@ -1,17 +1,20 @@
 
 extern crate legato;
 
-use std::os;
-use legato::compiler::{Compiler};
+//use std::os;
+use legato::compiler::gcc;
+use legato::compiler::build;
 
 fn main() {
     println!("Hello, my name is Legato, a C++ build tool.");
 
-    let mut compiler = Compiler::new("g++");
+    let mut compiler = gcc::Compiler::new("g++");
     compiler.arg("-MMD");
     compiler.arg("main.cxx");
 
-    compiler.compile();
+    let builder = build::Builder::new(&compiler);
 
-    let current_working_directory = os::getcwd().unwrap();
+    builder.build();
+
+    //let current_working_directory = os::getcwd().unwrap();
 }
